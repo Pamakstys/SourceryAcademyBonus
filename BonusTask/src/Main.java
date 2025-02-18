@@ -27,6 +27,8 @@ public class Main {
             }
             count++;
         }
+        //This part appends the last letter and count to the answer string since left != right
+        //condition does not become true for the last letter
         stringBuilder.append(left);
         stringBuilder.append(count);
 
@@ -35,11 +37,14 @@ public class Main {
 
     public static void Decompress(String line){
         StringBuilder stringBuilder = new StringBuilder();
+        //If the string is empty print the empty answer and stop the task
         if(line.isEmpty()){
             System.out.println(line + "-→" + stringBuilder);
             return;
         }
-
+        //Converts the char to string since the string class has a repeat method but this could be
+        //changed to a second loop that iterates through the count
+        //Converts the char to a int for the repeat count and after the reapeating appends to the answer string
         for(int i = 0; i < line.length(); i+=2){
             String letter = String.valueOf(line.charAt(i));
             int count = Integer.parseInt(String.valueOf(line.charAt(i+1)));
